@@ -13,7 +13,7 @@ const auth = async (req, res, next) => {
 
     if (!auth || auth.length !== 2) {
         res.setHeader('WWW-Authenticate', 'Basic realm="AccessRealm"');
-        res.status(401).json({error:'Unauthxorized'});
+        res.status(401).json({error:'Unauthorized'});
     } else {
         try {
             let user = await findUserByEmail(auth[0]);
